@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@source "./";
+
+@layer base {
+   *{
+      
+      @apply box-border;
+   }
+}
+
+@theme {
+  --font-sans: "Montserrat", sans-serif;
+}
