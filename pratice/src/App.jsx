@@ -1,23 +1,26 @@
 import React from 'react';
-import Left from './components/left'
-import Form from './components/form'
-
-const Layout = () =>{
-  return(
-  <div className="min-h-screen flex  mb-30 h-screen">
-    
-</div> 
-
-  );
-}
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./components/login";
+import Dashboard from "./components/dashboard";
+import ProtectedRoute from "./components/protectedRoute";
 
 const App = () => {
   return (
-    <div  className="min-h-screen flex  mb-30 h-screen">
-     <Left/>
-     <Form/>
-    </div>
+  <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 };
+
 
 export default (App);
